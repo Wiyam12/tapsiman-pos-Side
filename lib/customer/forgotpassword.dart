@@ -15,9 +15,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFa02e49),
+        backgroundColor: Colors.white,
         iconTheme: IconThemeData(
-          color: Colors.white,
+          color: Colors.deepPurple,
         ),
       ),
       body: Padding(
@@ -34,7 +34,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold)),
                     Image.asset(
-                      'assets/images/forgot-sad.png',
+                      'images/forgot-sad.png',
                       width: MediaQuery.of(context).size.width * 0.5,
                     ),
                     Text(
@@ -104,14 +104,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(
                               border: Border.all(
-                                  color: Color(0xFFa02e49), width: 2),
+                                  color: Colors.deepPurple, width: 2),
                               borderRadius: BorderRadius.circular(50),
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: _isExpanded
                                     ? [Colors.white, Colors.white]
-                                    : [Color(0xFFa02e49), Colors.pinkAccent],
+                                    : [Colors.deepPurple, Colors.pinkAccent],
                               ),
                             ),
                             child: Center(

@@ -4,13 +4,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:user/customer/pages/home.dart';
-import 'package:user/pages/home.dart';
 
 import 'components/cancel_button.dart';
 import 'components/input_container.dart';
 import 'constrants.dart';
 import 'forgotpassword.dart';
+import 'pages/home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -21,12 +20,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>
     with SingleTickerProviderStateMixin {
-  final List<List<String>> userData = [
-    ["entrep@gmail.com", "entrep123", "entrepreneur"],
-    ["customer@gmail.com", "customer123", "customer"]
-  ];
   bool isLogin = true;
-  bool entrep = true;
+
   AnimationController? animationController;
   Duration animationDuration = Duration(milliseconds: 270);
   late Animation<double> containerSize;
@@ -50,88 +45,6 @@ class _LoginPageState extends State<LoginPage>
   final _passwordControllerReg = new TextEditingController();
   final _confirmPasswordController = new TextEditingController();
   final _imageFileController = new TextEditingController();
-
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      String email = _emailController.text;
-      String password = _passwordController.text;
-
-      String userType = _getUserType(email, password);
-
-      if (userType == "entrepreneur") {
-        // Navigate to entrepreneur page
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
-      } else if (userType == "customer") {
-        // Navigate to customer page
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => HomePageCustomer(),
-          ),
-        );
-      } else {
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              contentPadding: EdgeInsets.zero,
-              titlePadding: EdgeInsets.only(top: 16, bottom: 8),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-                side: BorderSide(
-                  color: Color(0xFFa02e49),
-                  width: 3.0,
-                ),
-              ),
-              title: Text(
-                'Login Failed',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              content: SizedBox(
-                height: 120,
-                child: Column(
-                  children: [
-                    FittedBox(
-                        child: Text('Your email or password is incorrect')),
-                    Text('Please try again.'),
-                    SizedBox(height: 10),
-                    Divider(
-                      thickness: 2,
-                    ),
-                    Center(
-                      child: TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('OK',
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  color: Color(0xFFa02e49),
-                                  fontWeight: FontWeight.bold))),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
-      }
-    }
-  }
-
-  String _getUserType(String email, String password) {
-    for (var user in userData) {
-      if (user[0] == email && user[1] == password) {
-        return user[2];
-      }
-    }
-    return "";
-  }
-
   @override
   void initState() {
     super.initState();
@@ -141,9 +54,6 @@ class _LoginPageState extends State<LoginPage>
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-
     animationController!.dispose();
     super.dispose();
   }
@@ -227,10 +137,10 @@ class _LoginPageState extends State<LoginPage>
                             children: [
                               // SizedBox(height: 10),
                               Image.asset(
-                                'assets/images/logo.png',
+                                'images/logo.png',
                                 width: 150,
                               ),
-                              // SvgPicture.asset('assets/images/login.svg'),
+                              // SvgPicture.asset('images/login.svg'),
                               // SizedBox(height: 40),
                               InputContainer(
                                   child: TextFormField(
@@ -288,8 +198,12 @@ class _LoginPageState extends State<LoginPage>
                                   //   ),
                                   // );
                                   if (_formKey.currentState!.validate()) {
-                                    _submitForm();
-
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            HomePageCustomer(),
+                                      ),
+                                    );
                                     // setState(() {
                                     //   _isLoading = true;
                                     // });
@@ -395,7 +309,7 @@ class _LoginPageState extends State<LoginPage>
                                         CrossAxisAlignment.center,
                                     children: [
                                       Image.asset(
-                                        'assets/images/logo.png',
+                                        'images/logo.png',
                                         width: 150,
                                       ),
                                       Column(
@@ -416,113 +330,7 @@ class _LoginPageState extends State<LoginPage>
                                     ],
                                   ),
                                 ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Expanded(
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            entrep = true;
-                                          });
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              width: 2,
-                                              color: Color(0xFFa02e49),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: entrep
-                                                ? Color.fromARGB(63, 255, 0, 0)
-                                                : Colors.transparent,
-                                          ),
-                                          padding: EdgeInsets.all(16),
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.store,
-                                                color: Color(0xFFa02e49),
-                                                size: 40,
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("I'm"),
-                                                  Text(
-                                                    'Entrepreneur',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFFa02e49),
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Expanded(
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            entrep = false;
-                                          });
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              width: 2,
-                                              color: Color(0xFFa02e49),
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(5),
-                                            color: entrep
-                                                ? Colors.transparent
-                                                : Color.fromARGB(63, 255, 0, 0),
-                                          ),
-                                          padding: EdgeInsets.all(16),
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.emoji_people_outlined,
-                                                color: Color(0xFFa02e49),
-                                                size: 40,
-                                              ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text("I'm"),
-                                                  Text(
-                                                    'Customer',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFFa02e49),
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                  ],
-                                ),
+
                                 InputContainer(
                                     child: TextFormField(
                                   cursorColor: kPrimaryColor,
@@ -592,27 +400,26 @@ class _LoginPageState extends State<LoginPage>
                                       hintText: 'Number',
                                       border: InputBorder.none),
                                 )),
-                                if (entrep)
-                                  InputContainer(
-                                      child: TextFormField(
-                                    cursorColor: kPrimaryColor,
-                                    autocorrect: false,
-                                    controller: _businessController,
-                                    keyboardType: TextInputType.name,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'Please enter your Business Name';
-                                      }
-                                      return null;
-                                    },
-                                    onFieldSubmitted: (_) =>
-                                        FocusScope.of(context).nextFocus(),
-                                    decoration: InputDecoration(
-                                        icon: Icon(Icons.storefront_outlined,
-                                            color: kPrimaryColor),
-                                        hintText: 'Business Name',
-                                        border: InputBorder.none),
-                                  )),
+                                InputContainer(
+                                    child: TextFormField(
+                                  cursorColor: kPrimaryColor,
+                                  autocorrect: false,
+                                  controller: _businessController,
+                                  keyboardType: TextInputType.name,
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Please enter your Business Name';
+                                    }
+                                    return null;
+                                  },
+                                  onFieldSubmitted: (_) =>
+                                      FocusScope.of(context).nextFocus(),
+                                  decoration: InputDecoration(
+                                      icon: Icon(Icons.storefront_outlined,
+                                          color: kPrimaryColor),
+                                      hintText: 'Business Name',
+                                      border: InputBorder.none),
+                                )),
                                 InputContainer(
                                     child: TextFormField(
                                   cursorColor: kPrimaryColor,
@@ -660,28 +467,26 @@ class _LoginPageState extends State<LoginPage>
                                   },
                                 )),
                                 SizedBox(height: 10),
-                                if (entrep)
-                                  InputContainer(
-                                      child: TextFormField(
-                                    cursorColor: kPrimaryColor,
-                                    autocorrect: false,
-                                    readOnly: true,
-                                    controller: _imageFileController,
-                                    onFieldSubmitted: (_) =>
-                                        FocusScope.of(context).nextFocus(),
-                                    decoration: InputDecoration(
-                                        icon: Icon(Icons.lock,
-                                            color: kPrimaryColor),
-                                        hintText: 'Business Permit',
-                                        border: InputBorder.none),
-                                  )),
-                                if (entrep)
-                                  TextButton(
-                                    child: const Text('Upload Business Permit'),
-                                    onPressed: () {
-                                      // _pickImage(ImageSource.gallery);
-                                    },
-                                  ),
+                                InputContainer(
+                                    child: TextFormField(
+                                  cursorColor: kPrimaryColor,
+                                  autocorrect: false,
+                                  readOnly: true,
+                                  controller: _imageFileController,
+                                  onFieldSubmitted: (_) =>
+                                      FocusScope.of(context).nextFocus(),
+                                  decoration: InputDecoration(
+                                      icon: Icon(Icons.lock,
+                                          color: kPrimaryColor),
+                                      hintText: 'Business Permit',
+                                      border: InputBorder.none),
+                                )),
+                                TextButton(
+                                  child: const Text('Upload Business Permit'),
+                                  onPressed: () {
+                                    // _pickImage(ImageSource.gallery);
+                                  },
+                                ),
                                 SizedBox(height: 10),
                                 InkWell(
                                   onTap: () {
