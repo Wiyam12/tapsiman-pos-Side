@@ -14,36 +14,26 @@ class PosPage extends StatefulWidget {
 }
 
 class _PosPageState extends State<PosPage> {
-  List<String> buttonLabels = [
-    'RICE MEALS',
-    'DRINKS',
-  ];
+  List<String> buttonLabels = ['TAPSI', 'BEVERAGES', 'ADD ON'];
   int selectedIndex = 0;
 
   List<List<dynamic>> menu = [
-    ['TAPSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['BANGSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['TOCILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['LECHON SILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['LONGSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['CHICKSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['CORNSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['HOTSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['SPAMSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['TAPSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['BANGSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['TOCILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['LECHON SILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['LONGSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['CHICKSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['CORNSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['HOTSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['SPAMSILOG', 'RICE MEALS', AssetImage('assets/images/ambot.png')],
-    ['COKE', 'DRINKS', AssetImage('assets/images/ambot.png')],
-    ['SPRITE', 'DRINKS', AssetImage('assets/images/ambot.png')],
-    ['ROOT BEER', 'DRINKS', AssetImage('assets/images/ambot.png')],
+    ['TAPSILOG', 'TAPSI', AssetImage('assets/images/POS-tapsilog.jpg')],
+    ['BANGSILOG', 'TAPSI', AssetImage('assets/images/POS-bangsilog.jpg')],
+    ['TOCILOG', 'TAPSI', AssetImage('assets/images/POS-tocilog.jpg')],
+    ['LECHON SILOG', 'TAPSI', AssetImage('assets/images/POS-lechonsilog.jpg')],
+    ['LONGSILOG', 'TAPSI', AssetImage('assets/images/POS-longsilog.jpg')],
+    ['CHICKSILOG', 'TAPSI', AssetImage('assets/images/POS-chicksilog.jpg')],
+    ['CORNSILOG', 'TAPSI', AssetImage('assets/images/POS-cornsilog.jpg')],
+    ['HOTSILOG', 'TAPSI', AssetImage('assets/images/POS-hotsilog.jpg')],
+    ['SPAMSILOG', 'TAPSI', AssetImage('assets/images/POS-spamsilog.jpg')],
+    ['SPRITE', 'BEVERAGES', AssetImage('assets/images/spritecan.jpg')],
+    ['COKE', 'BEVERAGES', AssetImage('assets/images/cokecan.jpg')],
+    ['RICE', 'ADD ON', AssetImage('assets/images/rice.jpg')],
+    ['HOTDOG', 'ADD ON', AssetImage('assets/images/hot.jpg')],
+    ['TAPA', 'ADD ON', AssetImage('assets/images/tapa.jpg')],
   ];
-  String selectedStatus = 'RICE MEALS';
+  String selectedStatus = 'TAPSI';
   String search = '';
   @override
   Widget build(BuildContext context) {

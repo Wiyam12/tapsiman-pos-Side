@@ -187,7 +187,7 @@ class _AddOrderPageState extends State<AddOrderPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'SELECT ADDON',
+                      'ENTER NOTE:',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -195,144 +195,177 @@ class _AddOrderPageState extends State<AddOrderPage> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.33,
-                  child: ListView.builder(
-                    // scrollDirection: Axis.vertical,
-                    itemCount: addon.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Container(
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                width: 2,
-                                color: Color(0xFFa02e49),
-                              ),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 70,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  'EGG',
-                                  style: TextStyle(
-                                      color: Color(0xFFa02e49),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  width: 100,
-                                  height: 45,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 2,
-                                        color: Color(0xFFa02e49),
-                                      ),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        height: double.infinity,
-                                        color: Color(0xFFa02e49),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Icon(
-                                            Icons.remove,
-                                            size: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                          child: Text(
-                                        '0',
-                                        textAlign: TextAlign.center,
-                                      )),
-                                      Container(
-                                        height: double.infinity,
-                                        color: Color(0xFFa02e49),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Icon(
-                                            Icons.add,
-                                            size: 15,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      );
-                    },
+                SizedBox(height: 10),
+                TextField(
+                  style: TextStyle(color: Color(0xFFa02e49)),
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintStyle: TextStyle(color: Color(0xFFa02e49)),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xFFa02e49), width: 2.0),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: Color(0xFFa02e49), width: 2.0),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Divider(
-                  thickness: 2,
-                  color: Color(0xFFa02e49),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      'SELECT NOTE',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFa02e49)),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 40.0,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: notes.length,
-                    itemBuilder: (context, index) {
-                      bool isSelected = selectedIndex == index;
-                      Color backgroundColor =
-                          isSelected ? Color(0xFFa02e49) : Colors.white;
-                      Color textColor =
-                          isSelected ? Colors.white : Color(0xFFa02e49);
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       'SELECT ADDON',
+                //       style: TextStyle(
+                //           fontSize: 20,
+                //           fontWeight: FontWeight.bold,
+                //           color: Color(0xFFa02e49)),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.33,
+                //   child: ListView.builder(
+                //     // scrollDirection: Axis.vertical,
+                //     itemCount: addon.length,
+                //     itemBuilder: (context, index) {
+                //       return Padding(
+                //         padding: const EdgeInsets.symmetric(vertical: 8),
+                //         child: Container(
+                //           width: double.infinity,
+                //           decoration: BoxDecoration(
+                //               border: Border.all(
+                //                 width: 2,
+                //                 color: Color(0xFFa02e49),
+                //               ),
+                //               borderRadius: BorderRadius.circular(10)),
+                //           height: 70,
+                //           child: Row(
+                //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //             children: [
+                //               Padding(
+                //                 padding: const EdgeInsets.all(8.0),
+                //                 child: Text(
+                //                   'EGG',
+                //                   style: TextStyle(
+                //                       color: Color(0xFFa02e49),
+                //                       fontSize: 18,
+                //                       fontWeight: FontWeight.bold),
+                //                 ),
+                //               ),
+                //               Padding(
+                //                 padding: const EdgeInsets.all(8.0),
+                //                 child: Container(
+                //                   width: 100,
+                //                   height: 45,
+                //                   decoration: BoxDecoration(
+                //                       border: Border.all(
+                //                         width: 2,
+                //                         color: Color(0xFFa02e49),
+                //                       ),
+                //                       borderRadius: BorderRadius.circular(10)),
+                //                   child: Row(
+                //                     children: [
+                //                       Container(
+                //                         height: double.infinity,
+                //                         color: Color(0xFFa02e49),
+                //                         child: Padding(
+                //                           padding: const EdgeInsets.all(5.0),
+                //                           child: Icon(
+                //                             Icons.remove,
+                //                             size: 15,
+                //                             color: Colors.white,
+                //                           ),
+                //                         ),
+                //                       ),
+                //                       Expanded(
+                //                           child: Text(
+                //                         '0',
+                //                         textAlign: TextAlign.center,
+                //                       )),
+                //                       Container(
+                //                         height: double.infinity,
+                //                         color: Color(0xFFa02e49),
+                //                         child: Padding(
+                //                           padding: const EdgeInsets.all(5.0),
+                //                           child: Icon(
+                //                             Icons.add,
+                //                             size: 15,
+                //                             color: Colors.white,
+                //                           ),
+                //                         ),
+                //                       )
+                //                     ],
+                //                   ),
+                //                 ),
+                //               )
+                //             ],
+                //           ),
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 10,
+                // ),
+                // Divider(
+                //   thickness: 2,
+                //   color: Color(0xFFa02e49),
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: [
+                //     Text(
+                //       'SELECT NOTE',
+                //       style: TextStyle(
+                //           fontSize: 20,
+                //           fontWeight: FontWeight.bold,
+                //           color: Color(0xFFa02e49)),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 40.0,
+                //   child: ListView.builder(
+                //     scrollDirection: Axis.horizontal,
+                //     itemCount: notes.length,
+                //     itemBuilder: (context, index) {
+                //       bool isSelected = selectedIndex == index;
+                //       Color backgroundColor =
+                //           isSelected ? Color(0xFFa02e49) : Colors.white;
+                //       Color textColor =
+                //           isSelected ? Colors.white : Color(0xFFa02e49);
 
-                      return Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              selectedIndex = index;
-                            });
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                backgroundColor),
-                          ),
-                          child: Text(
-                            notes[index],
-                            style: TextStyle(color: textColor),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                //       return Padding(
+                //         padding: const EdgeInsets.all(4.0),
+                //         child: ElevatedButton(
+                //           onPressed: () {
+                //             setState(() {
+                //               selectedIndex = index;
+                //             });
+                //           },
+                //           style: ButtonStyle(
+                //             backgroundColor: MaterialStateProperty.all<Color>(
+                //                 backgroundColor),
+                //           ),
+                //           child: Text(
+                //             notes[index],
+                //             style: TextStyle(color: textColor),
+                //           ),
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // ),
               ],
             )),
             Align(

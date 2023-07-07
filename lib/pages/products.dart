@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user/pages/addproduct.dart';
+import 'package:user/pages/editproduct.dart';
 import 'package:user/pages/home.dart';
 
 class ProductPage extends StatefulWidget {
@@ -11,67 +12,88 @@ class ProductPage extends StatefulWidget {
 
 class _ProductPageState extends State<ProductPage> {
   List<List<dynamic>> menu = [
+    ['TAPSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-tapsilog.jpg')],
+    ['BANGSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-bangsilog.jpg')],
+    ['TOCILOG', 'TAPSI', 80, AssetImage('assets/images/POS-tocilog.jpg')],
     [
-      'TAPSILOG',
-      'RICE MEALS',
+      'LECHON SILOG',
+      'TAPSI',
       80,
-      AssetImage('assets/images/ambot.png'),
+      AssetImage('assets/images/POS-lechonsilog.jpg')
     ],
-    [
-      'BANGSILOG',
-      'RICE MEALS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'TOCILOG',
-      'RICE MEALS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'COKE',
-      'DRINKS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'SPRITE',
-      'DRINKS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'TAPSILOG',
-      'RICE MEALS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'BANGSILOG',
-      'RICE MEALS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'TOCILOG',
-      'RICE MEALS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'COKE',
-      'DRINKS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
-    [
-      'SPRITE',
-      'DRINKS',
-      80,
-      AssetImage('assets/images/ambot.png'),
-    ],
+    ['LONGSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-longsilog.jpg')],
+    ['CHICKSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-chicksilog.jpg')],
+    ['CORNSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-cornsilog.jpg')],
+    ['HOTSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-hotsilog.jpg')],
+    ['SPAMSILOG', 'TAPSI', 80, AssetImage('assets/images/POS-spamsilog.jpg')],
+    ['SPRITE', 'BEVERAGES', 30, AssetImage('assets/images/spritecan.jpg')],
+    ['COKE', 'BEVERAGES', 30, AssetImage('assets/images/cokecan.jpg')],
+    ['RICE', 'ADD ON', 15, AssetImage('assets/images/rice.jpg')],
+    ['HOTDOG', 'ADD ON', 15, AssetImage('assets/images/hot.jpg')],
+    ['TAPA', 'ADD ON', 15, AssetImage('assets/images/tapa.jpg')],
   ];
+  // List<List<dynamic>> menu = [
+  //   [
+  //     'TAPSILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'BANGSILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'TOCILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'COKE',
+  //     'DRINKS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'SPRITE',
+  //     'DRINKS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'TAPSILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'BANGSILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'TOCILOG',
+  //     'RICE MEALS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'COKE',
+  //     'DRINKS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  //   [
+  //     'SPRITE',
+  //     'DRINKS',
+  //     80,
+  //     AssetImage('assets/images/ambot.png'),
+  //   ],
+  // ];
 
   String searchQuery = '';
 
@@ -172,7 +194,7 @@ class _ProductPageState extends State<ProductPage> {
               ],
             ),
             SizedBox(
-              height: 500,
+              height: MediaQuery.of(context).size.height * 0.8,
               child: ListView.builder(
                 itemCount: menuByCategory.keys.length,
                 itemBuilder: (context, index) {
@@ -211,32 +233,52 @@ class _ProductPageState extends State<ProductPage> {
                           int price = items[index][2];
                           AssetImage image = items[index][3];
 
-                          return ListTile(
-                            leading: Image(image: image),
-                            title: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(itemName,
-                                    style: TextStyle(
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => EditProductPage(
+                                            imagelink: image,
+                                            productgroup: category,
+                                            productname: itemName,
+                                            productprice:
+                                                double.parse(price.toString()),
+                                            productcost: 30.0,
+                                            productstocks: 100,
+                                            isnotavailable: false,
+                                          )));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: ListTile(
+                                leading: Image(image: image),
+                                title: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(itemName,
+                                        style: TextStyle(
+                                            color: Color(
+                                          0xFFa02e49,
+                                        ))),
+                                    Text(
+                                      '₱${price.toString()}',
+                                      style: TextStyle(
+                                          color: Color(
+                                            0xFFa02e49,
+                                          ),
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                trailing: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(Icons.delete,
                                         color: Color(
-                                      0xFFa02e49,
-                                    ))),
-                                Text(
-                                  '₱${price.toString()}',
-                                  style: TextStyle(
-                                      color: Color(
-                                        0xFFa02e49,
-                                      ),
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
+                                          0xFFa02e49,
+                                        ))),
+                              ),
                             ),
-                            trailing: IconButton(
-                                onPressed: () {},
-                                icon: Icon(Icons.delete,
-                                    color: Color(
-                                      0xFFa02e49,
-                                    ))),
                           );
                         },
                       ),

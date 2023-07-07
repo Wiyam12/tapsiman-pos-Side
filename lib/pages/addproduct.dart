@@ -963,95 +963,95 @@ class _AddProductPageState extends State<AddProductPage> {
                                 height: 10,
                               ),
                               Divider(thickness: 2, color: Color(0xFFa02e49)),
-                              Row(
-                                children: [
-                                  // Row(
-                                  //   children: [Switch(value: true, onChanged: (value) {})],
-                                  // ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        children: [
-                                          Radio(
-                                              fillColor: MaterialStateProperty
-                                                  .resolveWith<Color>(
-                                                      (Set<MaterialState>
-                                                          states) {
-                                                if (states.contains(
-                                                    MaterialState.disabled)) {
-                                                  return Color(0xFFa02e49);
-                                                }
-                                                return Color(0xFFa02e49);
-                                              }),
-                                              value: 1,
-                                              groupValue: radioAddons,
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  showAddons = true;
-                                                  radioAddons = 0;
-                                                });
-                                              }),
-                                          GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                showAddons = true;
-                                              });
-                                            },
-                                            child: Text(
-                                              'Addons',
-                                              style: TextStyle(
-                                                  color: Color(0xFFa02e49),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Container(
-                                      child: Row(
-                                        children: [
-                                          Radio(
-                                              value: 1,
-                                              groupValue: radioNotes,
-                                              fillColor: MaterialStateProperty
-                                                  .resolveWith<Color>(
-                                                      (Set<MaterialState>
-                                                          states) {
-                                                if (states.contains(
-                                                    MaterialState.disabled)) {
-                                                  return Color(0xFFa02e49);
-                                                }
-                                                return Color(0xFFa02e49);
-                                              }),
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  showNotes = true;
-                                                });
-                                              }),
-                                          GestureDetector(
-                                            onTap: () {
-                                              setState(() {
-                                                showNotes = true;
-                                              });
-                                            },
-                                            child: Text(
-                                              'Notes',
-                                              style: TextStyle(
-                                                  color: Color(0xFFa02e49),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Divider(thickness: 2, color: Color(0xFFa02e49))
+                              // Row(
+                              //   children: [
+                              //     // Row(
+                              //     //   children: [Switch(value: true, onChanged: (value) {})],
+                              //     // ),
+                              //     Expanded(
+                              //       child: Container(
+                              //         child: Row(
+                              //           children: [
+                              //             Radio(
+                              //                 fillColor: MaterialStateProperty
+                              //                     .resolveWith<Color>(
+                              //                         (Set<MaterialState>
+                              //                             states) {
+                              //                   if (states.contains(
+                              //                       MaterialState.disabled)) {
+                              //                     return Color(0xFFa02e49);
+                              //                   }
+                              //                   return Color(0xFFa02e49);
+                              //                 }),
+                              //                 value: 1,
+                              //                 groupValue: radioAddons,
+                              //                 onChanged: (value) {
+                              //                   setState(() {
+                              //                     showAddons = true;
+                              //                     radioAddons = 0;
+                              //                   });
+                              //                 }),
+                              //             GestureDetector(
+                              //               onTap: () {
+                              //                 setState(() {
+                              //                   showAddons = true;
+                              //                 });
+                              //               },
+                              //               child: Text(
+                              //                 'Addons',
+                              //                 style: TextStyle(
+                              //                     color: Color(0xFFa02e49),
+                              //                     fontWeight: FontWeight.bold,
+                              //                     fontSize: 18),
+                              //               ),
+                              //             ),
+                              //           ],
+                              //         ),
+                              //       ),
+                              //     ),
+                              //     Expanded(
+                              //       child: Container(
+                              //         child: Row(
+                              //           children: [
+                              //             Radio(
+                              //                 value: 1,
+                              //                 groupValue: radioNotes,
+                              //                 fillColor: MaterialStateProperty
+                              //                     .resolveWith<Color>(
+                              //                         (Set<MaterialState>
+                              //                             states) {
+                              //                   if (states.contains(
+                              //                       MaterialState.disabled)) {
+                              //                     return Color(0xFFa02e49);
+                              //                   }
+                              //                   return Color(0xFFa02e49);
+                              //                 }),
+                              //                 onChanged: (value) {
+                              //                   setState(() {
+                              //                     showNotes = true;
+                              //                   });
+                              //                 }),
+                              //             GestureDetector(
+                              //               onTap: () {
+                              //                 setState(() {
+                              //                   showNotes = true;
+                              //                 });
+                              //               },
+                              //               child: Text(
+                              //                 'Notes',
+                              //                 style: TextStyle(
+                              //                     color: Color(0xFFa02e49),
+                              //                     fontWeight: FontWeight.bold,
+                              //                     fontSize: 18),
+                              //               ),
+                              //             ),
+                              //           ],
+                              //         ),
+                              //       ),
+                              //     ),
+                              //   ],
+                              // ),
+                              // Divider(thickness: 2, color: Color(0xFFa02e49))
                             ],
                           ),
                         ),

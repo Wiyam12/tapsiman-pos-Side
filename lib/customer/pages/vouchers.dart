@@ -77,7 +77,9 @@ class _VouchersPageState extends State<VouchersPage> {
                                         Navigator.of(context).push(
                                           MaterialPageRoute(
                                             builder: (context) =>
-                                                HomePageCustomer(),
+                                                HomePageCustomer(
+                                              storename: 'Tapsihan 1',
+                                            ),
                                           ),
                                         );
                                       },

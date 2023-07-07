@@ -4,8 +4,8 @@ import 'package:user/customer/pages/addorder.dart';
 import '../components/navbar.dart';
 
 class HomePageCustomer extends StatefulWidget {
-  const HomePageCustomer({super.key});
-
+  const HomePageCustomer({super.key, required this.storename});
+  final String storename;
   @override
   State<HomePageCustomer> createState() => _HomePageCustomerState();
 }
@@ -13,94 +13,105 @@ class HomePageCustomer extends StatefulWidget {
 class _HomePageCustomerState extends State<HomePageCustomer> {
   bool first = true;
   String username = 'Juan Dela Cruz';
-  List<String> buttonLabels = [
-    'TAPSI',
-    'BEVERAGES',
-  ];
+  List<String> buttonLabels = ['TAPSI', 'BEVERAGES', 'ADD ON'];
   List<List<dynamic>> menu = [
     [
-      'PRODUCT 1',
-      'PRICE 1',
+      'TAPSILOG',
+      '80',
       'TAPSI',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/POS-tapsilog.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'BEVERAGES',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
-    ],
-    [
-      'PRODUCT 1',
-      'PRICE 1',
+      'BANGSILOG',
+      '80',
       'TAPSI',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/POS-bangsilog.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'BEVERAGES',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
-    ],
-    [
-      'PRODUCT 1',
-      'PRICE 1',
+      'CHICKSILOG',
+      '80',
       'TAPSI',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/POS-chicksilog.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'TAPSI',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
-    ],
-    [
-      'PRODUCT 1',
-      'PRICE 1',
+      'CORNSILOG',
+      '80',
       'TAPSI',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/POS-cornsilog.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'BEVERAGES',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
+      'HOTSILOG',
+      '80',
+      'TAPSI',
+      '15-20 minutes',
+      AssetImage('assets/images/POS-hotsilog.jpg')
     ],
     [
-      'PRODUCT 1',
-      'PRICE 1',
+      'LECHONSILOG',
+      '80',
+      'TAPSI',
+      '15-20 minutes',
+      AssetImage('assets/images/POS-lechonsilog.jpg')
+    ],
+    [
+      'LONGSILOG',
+      '80',
+      'TAPSI',
+      '15-20 minutes',
+      AssetImage('assets/images/POS-longsilog.jpg')
+    ],
+    [
+      'SPAMSILOG',
+      '80',
+      'TAPSI',
+      '15-20 minutes',
+      AssetImage('assets/images/POS-spamsilog.jpg')
+    ],
+    [
+      'TOCILOG',
+      '80',
+      'TAPSI',
+      '15-20 minutes',
+      AssetImage('assets/images/POS-tocilog.jpg')
+    ],
+    [
+      'COKE',
+      '80',
       'BEVERAGES',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/cokecan.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'BEVERAGES',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
-    ],
-    [
-      'PRODUCT 1',
-      'PRICE 1',
+      'SPRITE',
+      '80',
       'BEVERAGES',
       '15-20 minutes',
-      AssetImage('images/ambot.png')
+      AssetImage('assets/images/spritecan.jpg')
     ],
     [
-      'PRODUCT 2',
-      'Price 2',
-      'BEVERAGES',
-      '10-15 minutes',
-      AssetImage('images/ambot.png')
+      'RICE',
+      '80',
+      'ADD ON',
+      '15-20 minutes',
+      AssetImage('assets/images/rice.jpg')
+    ],
+    [
+      'TAPA',
+      '80',
+      'ADD ON',
+      '15-20 minutes',
+      AssetImage('assets/images/tapa.jpg')
+    ],
+    [
+      'HOTDOG',
+      '80',
+      'ADD ON',
+      '15-20 minutes',
+      AssetImage('assets/images/hot.jpg')
     ],
 
     // ['Product 3', 'Price 3', 'Details 3', AssetImage('images/ambot.png')],
@@ -111,6 +122,7 @@ class _HomePageCustomerState extends State<HomePageCustomer> {
   String selectedGroup = 'TAPSI';
   @override
   Widget build(BuildContext context) {
+    String storename = widget.storename;
     if (first) {
       first = false;
       buttonLabels.insert(0, 'All');
@@ -159,7 +171,7 @@ class _HomePageCustomerState extends State<HomePageCustomer> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: Text(
-                        'Welcome!',
+                        'Welcome to $storename!',
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     )
@@ -256,6 +268,7 @@ class _HomePageCustomerState extends State<HomePageCustomer> {
                                   padding: const EdgeInsets.all(4.0),
                                   child: Container(
                                     height: 100,
+                                    width: 100,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
                                       borderRadius: BorderRadius.circular(20),

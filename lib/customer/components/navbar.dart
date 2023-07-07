@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user/customer/pages/storespage.dart';
 
 import 'package:user/customer/pages/vouchers.dart';
 import 'package:user/main.dart';
@@ -156,6 +157,24 @@ class _SideNavBarState extends State<SideNavBar> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => CartPage(),
+                        ),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    leading: Image.asset(
+                      'images/icons/store.png',
+                      width: 50,
+                    ),
+                    title: Text(
+                      'Store',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => StorePage(),
                         ),
                       );
                     },

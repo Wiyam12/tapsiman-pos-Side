@@ -200,11 +200,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (context) => HomePageCustomer(),
-                                ),
-                              );
+                              // Navigator.of(context).pushReplacement(
+                              //   MaterialPageRoute(
+                              //     builder: (context) => HomePageCustomer(),
+                              //   ),
+                              // );
                             },
                             child: Container(
                               height: 50,

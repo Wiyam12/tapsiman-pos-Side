@@ -171,11 +171,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (context) => HomePageCustomer(),
-                                ),
-                              );
+                              // Navigator.of(context).pushReplacement(
+                              //   MaterialPageRoute(
+                              //     builder: (context) => HomePageCustomer(),
+                              //   ),
+                              // );
                             },
                             child: Container(
                               height: 50,

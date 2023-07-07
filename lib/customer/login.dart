@@ -198,12 +198,12 @@ class _LoginPageState extends State<LoginPage>
                                   //   ),
                                   // );
                                   if (_formKey.currentState!.validate()) {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            HomePageCustomer(),
-                                      ),
-                                    );
+                                    // Navigator.of(context).pushReplacement(
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) =>
+                                    //         HomePageCustomer(),
+                                    //   ),
+                                    // );
                                     // setState(() {
                                     //   _isLoading = true;
                                     // });

@@ -10,6 +10,7 @@ import 'package:user/pages/home.dart';
 import 'components/cancel_button.dart';
 import 'components/input_container.dart';
 import 'constrants.dart';
+import 'customer/pages/storespage.dart';
 import 'forgotpassword.dart';
 
 class LoginPage extends StatefulWidget {
@@ -69,7 +70,7 @@ class _LoginPageState extends State<LoginPage>
         // Navigate to customer page
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => HomePageCustomer(),
+            builder: (context) => StorePage(),
           ),
         );
       } else {
@@ -592,6 +593,27 @@ class _LoginPageState extends State<LoginPage>
                                       hintText: 'Number',
                                       border: InputBorder.none),
                                 )),
+                                if (entrep)
+                                  InputContainer(
+                                      child: TextFormField(
+                                    cursorColor: kPrimaryColor,
+                                    autocorrect: false,
+                                    controller: _businessController,
+                                    keyboardType: TextInputType.name,
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return 'Please enter your Address';
+                                      }
+                                      return null;
+                                    },
+                                    onFieldSubmitted: (_) =>
+                                        FocusScope.of(context).nextFocus(),
+                                    decoration: InputDecoration(
+                                        icon: Icon(Icons.location_on_outlined,
+                                            color: kPrimaryColor),
+                                        hintText: 'Address',
+                                        border: InputBorder.none),
+                                  )),
                                 if (entrep)
                                   InputContainer(
                                       child: TextFormField(
